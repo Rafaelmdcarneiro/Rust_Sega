@@ -1,0 +1,23 @@
+# webassembly/empscripten build details go in: projects/emscripten/.cargo/config.toml)
+# build via: (cd projects/emscripten/ && cargo build --release)
+
+[package]
+name = "rustsega"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[profile.dev]
+# Enable optimisations in debug mode (keep all other settings/checks)
+opt-level = 2
+
+[dependencies]
+argh = "0.1.12"
+bitfield = "0.14.0"
+sdl2 = "0.36.0"
+
+[profile.release]
+lto = true
+codegen-units = 1
+panic="abort"
+
